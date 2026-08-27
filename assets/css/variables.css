@@ -1,0 +1,67 @@
+/* ==========================================================================
+   Design tokens — identidade visual da Tariane (Psicóloga)
+
+   Paleta fixa definida pela identidade visual: branco, terracota e
+   cinza-amarronzado. Não introduzimos outras cores.
+
+   Notas de contraste (WCAG 2.1 AA, fundo branco #FFFFFF):
+   - --color-brown (#5B554F) sobre branco  -> ~7.35:1  (passa AA e AAA em
+     qualquer tamanho de texto). Usar como cor padrão de texto e de fundo
+     de botões/elementos interativos com texto.
+   - --color-terracota (#AF774D) sobre branco -> ~3.77:1 (passa AA apenas
+     para texto grande — títulos ≥ 24px ou ≥ 19px em negrito — e para
+     elementos gráficos/UI). NÃO usar em parágrafos, texto pequeno ou
+     texto de botão pequeno: usar apenas em títulos grandes, bordas,
+     ícones, sublinhados e destaques decorativos.
+   ========================================================================== */
+
+:root {
+  /* Cores da identidade visual */
+  --color-white: #ffffff;
+  --color-terracota: #af774d;
+  --color-brown: #5b554f;
+
+  /* Papéis semânticos (para facilitar troca/ajuste futuro) */
+  --color-bg: var(--color-white);
+  --color-text: var(--color-brown);
+  --color-heading: var(--color-brown);
+  --color-accent: var(--color-terracota);
+  --color-surface: #faf6f2; /* tom neutro claríssimo, derivado do terracota, para cards/seções alternadas */
+
+  --color-btn-bg: var(--color-brown);
+  --color-btn-bg-hover: var(--color-terracota);
+  --color-btn-text: var(--color-white);
+
+  --color-focus-ring: var(--color-terracota);
+
+  /* Tipografia */
+  --font-primary: 'IBM Plex Serif', Georgia, 'Times New Roman', serif;
+
+  --fs-base: 1rem;
+  --fs-sm: 0.9375rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.375rem;
+  --fs-2xl: 1.75rem;
+  --fs-3xl: 2.25rem;
+  --fs-4xl: 2.75rem;
+
+  --lh-base: 1.6;
+  --lh-heading: 1.2;
+
+  /* Espaçamento (escala em rem) */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+
+  /* Layout */
+  --container-max: 75rem; /* 1200px */
+  --container-padding: var(--space-sm);
+  --radius: 0.5rem;
+
+  /* Transições (desativadas globalmente via prefers-reduced-motion no reset.css) */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+}

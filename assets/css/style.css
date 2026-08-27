@@ -1,0 +1,428 @@
+/* ==========================================================================
+   Site institucional — Tariane (Psicóloga)
+   Estrutura: utilitários > acessibilidade > layout base > header/nav >
+   hero > sobre > atuação > público > contato > footer > responsivo
+   ========================================================================== */
+
+/* ---- Utilitários ---- */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---- Acessibilidade: link "pular para o conteúdo" ---- */
+
+.skip-link {
+  position: absolute;
+  top: -3rem;
+  left: var(--space-sm);
+  z-index: 1000;
+  background: var(--color-brown);
+  color: var(--color-white);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius);
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: var(--space-sm);
+}
+
+/* ---- Foco visível para navegação por teclado ---- */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---- Base ---- */
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--fs-base);
+  line-height: var(--lh-base);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-primary);
+  color: var(--color-heading);
+  line-height: var(--lh-heading);
+  font-weight: 600;
+}
+
+h1 {
+  font-size: var(--fs-4xl);
+}
+
+h2 {
+  font-size: var(--fs-3xl);
+  margin-bottom: var(--space-md);
+}
+
+h3 {
+  font-size: var(--fs-xl);
+}
+
+p {
+  max-width: 65ch;
+}
+
+section {
+  padding-block: var(--space-2xl);
+}
+
+/* Links dentro de texto corrido: contraste garantido (--color-brown) +
+   sublinhado, para não depender só da cor (WCAG 1.4.1). O terracota fica
+   reservado para o estado de hover/focus, como reforço visual adicional. */
+.contato a,
+.sobre a {
+  color: var(--color-brown);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.contato a:hover,
+.sobre a:hover {
+  color: var(--color-terracota);
+}
+
+/* ---- Botões ---- */
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: var(--fs-base);
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.btn--primary {
+  background-color: var(--color-btn-bg);
+  color: var(--color-btn-text);
+}
+
+.btn--primary:hover,
+.btn--primary:focus-visible {
+  background-color: var(--color-btn-bg-hover);
+  color: var(--color-white);
+}
+
+/* ---- Header / Navegação ---- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-surface);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding-block: var(--space-sm);
+}
+
+.logo {
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  color: var(--color-heading);
+  white-space: nowrap;
+}
+
+.logo__subtitle {
+  display: block;
+  font-size: var(--fs-sm);
+  font-weight: 400;
+  color: var(--color-brown);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.nav__list {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.nav__link {
+  font-size: var(--fs-base);
+  font-weight: 500;
+  padding-block: 0.25rem;
+  border-bottom: 2px solid transparent;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.nav__link:hover,
+.nav__link:focus-visible,
+.nav__link[aria-current='true'] {
+  border-bottom-color: var(--color-terracota);
+  font-weight: 600;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius);
+}
+
+.nav-toggle__icon,
+.nav-toggle__icon::before,
+.nav-toggle__icon::after {
+  display: block;
+  width: 1.5rem;
+  height: 2px;
+  background-color: var(--color-brown);
+  border-radius: 1px;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.nav-toggle__icon::before,
+.nav-toggle__icon::after {
+  content: '';
+  position: relative;
+}
+
+.nav-toggle__icon::before {
+  top: -6px;
+}
+
+.nav-toggle__icon::after {
+  top: 4px;
+}
+
+.nav-toggle[aria-expanded='true'] .nav-toggle__icon {
+  background-color: transparent;
+}
+
+.nav-toggle[aria-expanded='true'] .nav-toggle__icon::before {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded='true'] .nav-toggle__icon::after {
+  transform: translateY(-4px) rotate(-45deg);
+}
+
+/* ---- Hero ---- */
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+  padding-block: var(--space-lg);
+}
+
+.hero__subtitle {
+  font-size: var(--fs-lg);
+  margin-block: var(--space-sm) var(--space-md);
+}
+
+.hero__media img {
+  border-radius: var(--radius);
+  width: 100%;
+  object-fit: cover;
+}
+
+/* ---- Sobre ---- */
+
+.sobre {
+  background-color: var(--color-surface);
+}
+
+.sobre__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.sobre__media img {
+  border-radius: var(--radius);
+  width: 100%;
+  object-fit: cover;
+}
+
+.credencial {
+  margin-top: var(--space-sm);
+  font-weight: 600;
+  color: var(--color-heading);
+}
+
+/* ---- Atuação (cards) ---- */
+
+.atuacao__intro {
+  margin-bottom: var(--space-lg);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid rgba(175, 119, 77, 0.25);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+}
+
+.card__title {
+  margin-bottom: var(--space-xs);
+}
+
+/* ---- Para quem é indicado ---- */
+
+.publico__list li {
+  position: relative;
+  padding-left: var(--space-md);
+  margin-bottom: var(--space-xs);
+}
+
+.publico__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-terracota);
+}
+
+/* ---- Contato ---- */
+
+.contato {
+  background-color: var(--color-surface);
+}
+
+.contato__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-block: var(--space-md);
+}
+
+.social-links {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.social-links a {
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.social-links a:hover,
+.social-links a:focus-visible {
+  color: var(--color-terracota);
+}
+
+/* ---- Footer ---- */
+
+.site-footer {
+  background-color: var(--color-brown);
+  color: var(--color-white);
+  padding-block: var(--space-md);
+  text-align: center;
+  font-size: var(--fs-sm);
+}
+
+/* ==========================================================================
+   Responsivo
+   ========================================================================== */
+
+@media (max-width: 47.99rem) {
+  /* < 768px: menu mobile */
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    background-color: var(--color-white);
+    padding: var(--space-md);
+    border-bottom: 1px solid var(--color-surface);
+    display: none;
+  }
+
+  .nav.is-open {
+    display: flex;
+  }
+
+  .nav__list {
+    flex-direction: column;
+    gap: var(--space-sm);
+    width: 100%;
+  }
+
+  .nav__cta {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (min-width: 48rem) {
+  /* >= 768px: layouts lado a lado */
+  .hero__inner {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+
+  .sobre__inner {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  /* >= 1024px */
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

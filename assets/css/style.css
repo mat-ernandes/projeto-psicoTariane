@@ -151,17 +151,14 @@ section {
 }
 
 .logo {
-  font-size: var(--fs-lg);
-  font-weight: 600;
-  color: var(--color-heading);
-  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
 }
 
-.logo__subtitle {
+.logo__img {
+  height: 3rem;
+  width: auto;
   display: block;
-  font-size: var(--fs-sm);
-  font-weight: 400;
-  color: var(--color-brown);
 }
 
 .nav {

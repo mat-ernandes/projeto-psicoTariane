@@ -517,6 +517,37 @@ section {
   font-size: var(--fs-sm);
 }
 
+/* ---- Botão flutuante do WhatsApp ---- */
+
+.whatsapp-float {
+  position: fixed;
+  left: var(--space-md);
+  bottom: var(--space-md);
+  z-index: 200;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  background-color: var(--terracota);
+  color: var(--branco);
+  box-shadow: 0 4px 12px rgba(91, 85, 79, 0.35);
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.whatsapp-float svg {
+  width: 28px;
+  height: 28px;
+  fill: currentColor;
+}
+
+.whatsapp-float:hover,
+.whatsapp-float:focus-visible {
+  background-color: var(--cinza-escuro);
+  transform: scale(1.08);
+}
+
 /* ==========================================================================
    Responsivo
    ========================================================================== */

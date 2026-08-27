@@ -100,7 +100,11 @@
       {
         input: document.getElementById('mensagem'),
         erroEl: document.getElementById('mensagem-erro'),
-        validar: (valor) => (valor.length === 0 ? 'Por favor, escreva sua mensagem.' : ''),
+        validar: (valor) => {
+          if (valor.length === 0) return 'Por favor, escreva sua mensagem.';
+          if (valor.length < 10) return 'A mensagem deve ter pelo menos 10 caracteres.';
+          return '';
+        },
       },
     ];
 

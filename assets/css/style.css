@@ -280,6 +280,28 @@ section {
   color: var(--color-heading);
 }
 
+/* Pull-quote decorativo: repete visualmente uma frase que já existe no texto
+   corrido acima, por isso leva aria-hidden="true" (evita leitura duplicada
+   por leitor de tela) e não deve ser a única ocorrência do trecho. */
+.pull-quote {
+  margin-block: var(--space-lg);
+  padding-left: var(--space-md);
+  border-left: 4px solid var(--color-terracota);
+}
+
+.pull-quote p {
+  font-size: var(--fs-2xl);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--color-heading);
+  line-height: var(--lh-heading);
+}
+
+.assinatura {
+  margin-top: var(--space-md);
+  font-style: italic;
+}
+
 /* ---- Atuação (cards) ---- */
 
 .atuacao__intro {

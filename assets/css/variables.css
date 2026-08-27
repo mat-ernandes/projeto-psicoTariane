@@ -10,15 +10,22 @@
      secundário) e de fundo de botões/elementos interativos com texto.
    - --terracota (#AF774D) sobre branco -> ~3.77:1 (passa AA apenas para
      texto grande — títulos ≥ 24px ou ≥ 19px em negrito — e para
-     elementos gráficos/UI). NÃO usar em parágrafos, texto pequeno ou
-     texto de botão pequeno: usar apenas como cor de destaque em títulos
-     grandes, bordas, ícones, sublinhados e estados de foco/hover.
+     elementos gráficos/UI, como bordas, ícones e indicador de foco).
+     NÃO usar como cor de TEXTO em tamanho normal (parágrafos, links,
+     texto de botão) nem como fundo atrás de texto branco: nesses casos
+     usar --terracota-escuro.
+   - --terracota-escuro (#9C6640) sobre branco -> ~4.79:1 (passa AA para
+     texto normal). Por ser a mesma relação de contraste em qualquer
+     ordem das duas cores, serve tanto para texto terracota sobre fundo
+     branco quanto para texto branco sobre fundo terracota. Usar nos
+     estados hover/focus de botões e links que antes usavam --terracota.
    ========================================================================== */
 
 :root {
   /* Paleta da identidade visual */
   --branco: #ffffff;
   --terracota: #af774d;
+  --terracota-escuro: #9c6640;
   --cinza-escuro: #5b554f;
 
   /* Papéis semânticos (para facilitar troca/ajuste futuro) */
@@ -29,7 +36,7 @@
   --color-surface: #faf6f2; /* tom neutro claríssimo, derivado do terracota, para cards/seções alternadas */
 
   --color-btn-bg: var(--cinza-escuro);
-  --color-btn-bg-hover: var(--terracota);
+  --color-btn-bg-hover: var(--terracota-escuro);
   --color-btn-text: var(--branco);
 
   --color-focus-ring: var(--terracota);

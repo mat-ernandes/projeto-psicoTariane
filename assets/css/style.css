@@ -106,7 +106,7 @@ section {
 
 .contato__list a:hover,
 .sobre a:hover {
-  color: var(--terracota);
+  color: var(--terracota-escuro);
 }
 
 /* ---- Botões ---- */

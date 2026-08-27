@@ -47,8 +47,8 @@
         <span class="nav-toggle__icon" aria-hidden="true"></span>
       </button>
 
-      <nav class="nav" aria-label="Navegação principal">
-        <ul class="nav__list" id="menu-principal">
+      <nav class="nav" id="menu-principal" aria-label="Navegação principal">
+        <ul class="nav__list" role="list">
           <li><a href="#sobre" class="nav__link">Sobre</a></li>
           <li><a href="#atuacao" class="nav__link">Atuação</a></li>
           <li><a href="#contato" class="nav__link">Contato</a></li>
@@ -153,7 +153,7 @@
         <ul class="cards" role="list">
           <li class="card">
             <h3 class="card__title">Formação</h3>
-            <ul class="card__list">
+            <ul class="card__list" role="list">
               <li>Psicóloga — CRP 06/138426</li>
               <li>Mestre em Psicologia pela UNESP/Bauru</li>
             </ul>
@@ -161,7 +161,7 @@
 
           <li class="card">
             <h3 class="card__title">Onde atendo</h3>
-            <ul class="card__list">
+            <ul class="card__list" role="list">
               <li>Supervisora em Psicologia Clínica</li>
               <li>Psicóloga Clínica no Instituto Therapie Bauru</li>
               <li>
@@ -173,7 +173,7 @@
 
           <li class="card">
             <h3 class="card__title">Especializações</h3>
-            <ul class="card__list">
+            <ul class="card__list" role="list">
               <li>Terapia Cognitivo Comportamental — PUC/RS</li>
               <li>Psicologia Positiva — University of Pennsylvania</li>
               <li>Dependência Química — PASSO 1</li>
@@ -199,7 +199,7 @@
       <div class="container">
         <h2 id="publico-heading">Para quem é indicado</h2>
         <!-- CONTEÚDO PENDENTE: lista de públicos/situações atendidas -->
-        <ul class="publico__list">
+        <ul class="publico__list" role="list">
           <li>[CONTEÚDO PENDENTE]</li>
         </ul>
       </div>
@@ -212,14 +212,12 @@
           <h2 id="contato-heading">Contato</h2>
           <p>Fique à vontade para entrar em contato ou vir até o consultório.</p>
 
-          <ul class="contato__list contato__list--destaque">
+          <ul class="contato__list contato__list--destaque" role="list">
             <li>
-              <span class="sr-only">Telefone:</span>
-              <a href="tel:+5514988092529">14 98809-2529</a>
+              <a href="tel:+5514988092529"><span class="sr-only">Telefone: </span>14 98809-2529</a>
             </li>
             <li>
-              <span class="sr-only">E-mail:</span>
-              <a href="mailto:tariane.agenda@gmail.com">tariane.agenda@gmail.com</a>
+              <a href="mailto:tariane.agenda@gmail.com"><span class="sr-only">E-mail: </span>tariane.agenda@gmail.com</a>
             </li>
             <li>
               <span class="sr-only">Endereço:</span>
@@ -236,7 +234,7 @@
             </li>
           </ul>
 
-          <ul class="social-links" aria-label="Redes sociais">
+          <ul class="social-links" role="list" aria-label="Redes sociais">
             <li>
               <a
                 href="https://wa.me/5514988092529"

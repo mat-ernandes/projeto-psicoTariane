@@ -74,4 +74,65 @@
   if (anoAtual) {
     anoAtual.textContent = new Date().getFullYear();
   }
+
+  /* ---- Formulário de contato: validação acessível (sem envio real ainda) ---- */
+  const contatoForm = document.getElementById('contato-form');
+
+  if (contatoForm) {
+    const formStatus = document.getElementById('form-status');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    const campos = [
+      {
+        input: document.getElementById('nome'),
+        erroEl: document.getElementById('nome-erro'),
+        validar: (valor) => (valor.length === 0 ? 'Por favor, preencha seu nome.' : ''),
+      },
+      {
+        input: document.getElementById('email'),
+        erroEl: document.getElementById('email-erro'),
+        validar: (valor) => {
+          if (valor.length === 0) return 'Por favor, preencha seu e-mail.';
+          if (!emailRegex.test(valor)) return 'Digite um e-mail válido.';
+          return '';
+        },
+      },
+      {
+        input: document.getElementById('mensagem'),
+        erroEl: document.getElementById('mensagem-erro'),
+        validar: (valor) => (valor.length === 0 ? 'Por favor, escreva sua mensagem.' : ''),
+      },
+    ];
+
+    const validarCampo = (campo) => {
+      const mensagemErro = campo.validar(campo.input.value.trim());
+      campo.erroEl.textContent = mensagemErro;
+      campo.input.setAttribute('aria-invalid', mensagemErro ? 'true' : 'false');
+      return !mensagemErro;
+    };
+
+    contatoForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      formStatus.textContent = '';
+
+      const primeiroInvalido = campos.find((campo) => !validarCampo(campo));
+
+      if (primeiroInvalido) {
+        primeiroInvalido.input.focus();
+        return;
+      }
+
+      // Envio real ainda não implementado — só a validação da interface.
+      formStatus.textContent = 'Formulário validado. O envio da mensagem ainda será implementado.';
+      contatoForm.reset();
+    });
+
+    campos.forEach((campo) => {
+      campo.input.addEventListener('input', () => {
+        if (campo.input.getAttribute('aria-invalid') === 'true') {
+          validarCampo(campo);
+        }
+      });
+    });
+  }
 })();

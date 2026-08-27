@@ -380,11 +380,29 @@ section {
   background-color: var(--color-surface);
 }
 
+.contato__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+}
+
 .contato__list {
   display: flex;
   flex-direction: column;
   gap: var(--space-xs);
   margin-block: var(--space-md);
+}
+
+.contato__list--destaque li {
+  font-size: var(--fs-lg);
+  font-weight: 600;
+}
+
+.contato__mapa-link {
+  font-size: var(--fs-sm);
+  font-weight: 400;
+  margin-left: var(--space-xs);
+  white-space: nowrap;
 }
 
 .social-links {
@@ -402,6 +420,61 @@ section {
 .social-links a:hover,
 .social-links a:focus-visible {
   color: var(--color-terracota);
+}
+
+/* ---- Formulário de contato ---- */
+
+.contato-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.form-instrucoes {
+  font-size: var(--fs-sm);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.form-field label {
+  font-weight: 600;
+  color: var(--color-heading);
+}
+
+.form-field input,
+.form-field textarea {
+  border: 1px solid rgba(91, 85, 79, 0.35);
+  border-radius: var(--radius);
+  padding: 0.65rem 0.9rem;
+  background-color: var(--color-white);
+  resize: vertical;
+}
+
+.form-field input:invalid[aria-invalid='true'],
+.form-field textarea:invalid[aria-invalid='true'] {
+  border-color: #b3261e;
+}
+
+.form-error {
+  min-height: 1.25em;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: #b3261e;
+}
+
+.form-status {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-heading);
+  min-height: 1.25em;
+}
+
+.contato-form .btn {
+  align-self: flex-start;
 }
 
 /* ---- Footer ---- */
@@ -462,6 +535,10 @@ section {
 
   .sobre__inner {
     grid-template-columns: 0.9fr 1.1fr;
+  }
+
+  .contato__inner {
+    grid-template-columns: 1fr 1fr;
   }
 
   .cards {

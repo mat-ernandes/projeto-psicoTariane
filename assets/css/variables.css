@@ -5,34 +5,34 @@
    cinza-amarronzado. Não introduzimos outras cores.
 
    Notas de contraste (WCAG 2.1 AA, fundo branco #FFFFFF):
-   - --color-brown (#5B554F) sobre branco  -> ~7.35:1  (passa AA e AAA em
-     qualquer tamanho de texto). Usar como cor padrão de texto e de fundo
-     de botões/elementos interativos com texto.
-   - --color-terracota (#AF774D) sobre branco -> ~3.77:1 (passa AA apenas
-     para texto grande — títulos ≥ 24px ou ≥ 19px em negrito — e para
+   - --cinza-escuro (#5B554F) sobre branco -> ~7.35:1  (passa AA e AAA em
+     qualquer tamanho de texto). Usar como cor de texto (principal e
+     secundário) e de fundo de botões/elementos interativos com texto.
+   - --terracota (#AF774D) sobre branco -> ~3.77:1 (passa AA apenas para
+     texto grande — títulos ≥ 24px ou ≥ 19px em negrito — e para
      elementos gráficos/UI). NÃO usar em parágrafos, texto pequeno ou
-     texto de botão pequeno: usar apenas em títulos grandes, bordas,
-     ícones, sublinhados e destaques decorativos.
+     texto de botão pequeno: usar apenas como cor de destaque em títulos
+     grandes, bordas, ícones, sublinhados e estados de foco/hover.
    ========================================================================== */
 
 :root {
-  /* Cores da identidade visual */
-  --color-white: #ffffff;
-  --color-terracota: #af774d;
-  --color-brown: #5b554f;
+  /* Paleta da identidade visual */
+  --branco: #ffffff;
+  --terracota: #af774d;
+  --cinza-escuro: #5b554f;
 
   /* Papéis semânticos (para facilitar troca/ajuste futuro) */
-  --color-bg: var(--color-white);
-  --color-text: var(--color-brown);
-  --color-heading: var(--color-brown);
-  --color-accent: var(--color-terracota);
+  --color-bg: var(--branco);
+  --color-text: var(--cinza-escuro);
+  --color-heading: var(--cinza-escuro);
+  --color-accent: var(--terracota);
   --color-surface: #faf6f2; /* tom neutro claríssimo, derivado do terracota, para cards/seções alternadas */
 
-  --color-btn-bg: var(--color-brown);
-  --color-btn-bg-hover: var(--color-terracota);
-  --color-btn-text: var(--color-white);
+  --color-btn-bg: var(--cinza-escuro);
+  --color-btn-bg-hover: var(--terracota);
+  --color-btn-text: var(--branco);
 
-  --color-focus-ring: var(--color-terracota);
+  --color-focus-ring: var(--terracota);
 
   /* Tipografia */
   --font-primary: 'IBM Plex Serif', Georgia, 'Times New Roman', serif;

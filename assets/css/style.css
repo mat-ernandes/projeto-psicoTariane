@@ -97,14 +97,14 @@ section {
 /* Links dentro de texto corrido: contraste garantido (--color-brown) +
    sublinhado, para não depender só da cor (WCAG 1.4.1). O terracota fica
    reservado para o estado de hover/focus, como reforço visual adicional. */
-.contato a,
+.contato__list a,
 .sobre a {
   color: var(--color-brown);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
-.contato a:hover,
+.contato__list a:hover,
 .sobre a:hover {
   color: var(--color-terracota);
 }
@@ -411,15 +411,23 @@ section {
   margin-top: var(--space-md);
 }
 
-.social-links a {
-  font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 2px;
+.social-links__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-terracota);
+  transition: color var(--transition-fast);
 }
 
-.social-links a:hover,
-.social-links a:focus-visible {
-  color: var(--color-terracota);
+.social-links__link svg {
+  width: 28px;
+  height: 28px;
+  fill: currentColor;
+}
+
+.social-links__link:hover,
+.social-links__link:focus-visible {
+  color: var(--color-brown);
 }
 
 /* ---- Formulário de contato ---- */

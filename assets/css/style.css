@@ -304,7 +304,9 @@ section {
 
 /* ---- Atuação (cards) ---- */
 
-.atuacao__intro {
+.atuacao__credencial {
+  font-weight: 600;
+  color: var(--color-heading);
   margin-bottom: var(--space-lg);
 }
 
@@ -322,6 +324,34 @@ section {
 }
 
 .card__title {
+  margin-bottom: var(--space-sm);
+}
+
+.card__list li {
+  position: relative;
+  padding-left: var(--space-md);
+  margin-bottom: var(--space-xs);
+  font-size: var(--fs-sm);
+}
+
+.card__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-terracota);
+}
+
+.atuacao__reconhecimento {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-lg);
+  border-top: 1px solid rgba(175, 119, 77, 0.25);
+}
+
+.atuacao__reconhecimento h3 {
   margin-bottom: var(--space-xs);
 }
 

@@ -258,12 +258,21 @@ section {
 
 /* ---- Hero ---- */
 
+/* No mobile, o hero fica logo abaixo do header fixo: reduzimos o espaço
+   do topo (que por padrão vem duplicado — da section genérica + do
+   próprio .hero__inner) e restauramos o valor original no desktop, lá
+   embaixo em "Responsivo". */
+.hero {
+  padding-top: var(--space-md);
+}
+
 .hero__inner {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-lg);
   align-items: center;
   padding-block: var(--space-lg);
+  padding-top: var(--space-sm);
 }
 
 .hero__subtitle {
@@ -271,10 +280,62 @@ section {
   margin-block: var(--space-sm) var(--space-md);
 }
 
-.hero__media img {
-  border-radius: var(--radius);
+.hero__media {
+  /* Mobile: foto aparece antes do texto (mesmo estando depois no DOM,
+     por semântica/leitura por leitor de tela). Revertido no desktop,
+     onde a ordem visual já segue a ordem do grid lado a lado. */
+  order: -1;
+}
+
+/* Composição visual do retrato do hero: mesmo tratamento da seção Sobre
+   (arco decorativo + cartão flutuante, com a mesma espessura/cor/classe),
+   só o recorte da foto tem uma assimetria própria. Mesma regra de
+   segurança: deslocamentos negativos <= 1rem, dentro do padding do
+   .container, para não gerar scroll horizontal em telas pequenas. */
+.hero__visual {
+  position: relative;
+  max-width: 27rem;
+  margin-inline: auto;
+}
+
+.hero__photo-frame {
+  position: relative;
+  z-index: 1;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  /* Recorte orgânico diferente do da seção Sobre: mais "gota/pétala",
+     puxado para o canto oposto. */
+  border-radius: 34% 66% 60% 40% / 52% 36% 64% 48%;
+  box-shadow: 0 1.75rem 3rem rgba(91, 85, 79, 0.2);
+}
+
+.hero__photo {
+  display: block;
   width: 100%;
+  height: 100%;
   object-fit: cover;
+  object-position: center top;
+}
+
+/* Cartão flutuante do hero: reaproveita o mesmo componente/classe do
+   cartão de assinatura da seção Sobre (.sobre__quote-card — fundo,
+   sombra, cantos e posição no canto inferior esquerdo idênticos), só
+   com um modificador para o conteúdo em duas linhas em vez de uma. */
+.sobre__quote-card.hero__badge-card {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15rem;
+}
+
+.hero__badge-label {
+  font-size: 0.75rem;
+  color: var(--cinza-escuro);
+}
+
+.hero__badge-highlight {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  color: var(--terracota);
 }
 
 /* ---- Sobre ---- */
@@ -290,33 +351,69 @@ section {
   align-items: center;
 }
 
-.sobre__media img {
-  border-radius: var(--radius);
+/* Composição visual do retrato: moldura orgânica assimétrica + arco parcial
+   decorativo atrás + cartão de assinatura sobreposto num dos cantos.
+   Deslocamentos negativos ficam <= 1rem para nunca ultrapassar o padding
+   lateral do .container (1rem) e não gerar scroll horizontal no mobile. */
+.sobre__visual {
+  position: relative;
+  max-width: 26rem;
+  margin-inline: auto;
+}
+
+.sobre__photo-frame {
+  position: relative;
+  z-index: 1;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  /* Cantos bem desiguais de propósito: dá um contorno orgânico e único à
+     foto, em vez de uma elipse/círculo simétrico. */
+  border-radius: 63% 37% 54% 46% / 43% 65% 35% 57%;
+  box-shadow: 0 1.5rem 2.5rem rgba(91, 85, 79, 0.18);
+}
+
+.sobre__photo {
+  display: block;
   width: 100%;
+  height: 100%;
   object-fit: cover;
+  object-position: center top;
+}
+
+.sobre__quote-card {
+  position: absolute;
+  z-index: 2;
+  left: -0.75rem;
+  bottom: -1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  max-width: 11rem;
+  background-color: var(--branco);
+  padding: 0.65rem 1rem;
+  border-radius: 1rem 1rem 1rem 0.25rem;
+  box-shadow: 0 0.5rem 1.25rem rgba(91, 85, 79, 0.22);
+}
+
+.sobre__quote-star {
+  flex-shrink: 0;
+  color: var(--terracota);
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.sobre__quote-text {
+  font-style: italic;
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  line-height: 1.2;
+  color: var(--color-heading);
 }
 
 .credencial {
   margin-top: var(--space-sm);
   font-weight: 600;
   color: var(--color-heading);
-}
-
-/* Pull-quote decorativo: repete visualmente uma frase que já existe no texto
-   corrido acima, por isso leva aria-hidden="true" (evita leitura duplicada
-   por leitor de tela) e não deve ser a única ocorrência do trecho. */
-.pull-quote {
-  margin-block: var(--space-lg);
-  padding-left: var(--space-md);
-  border-left: 4px solid var(--terracota);
-}
-
-.pull-quote p {
-  font-size: var(--fs-2xl);
-  font-style: italic;
-  font-weight: 600;
-  color: var(--color-heading);
-  line-height: var(--lh-heading);
 }
 
 .assinatura {
@@ -581,8 +678,17 @@ section {
   }
 
   /* >= 768px: layouts lado a lado */
+  .hero {
+    padding-top: var(--space-2xl);
+  }
+
   .hero__inner {
     grid-template-columns: 1.1fr 0.9fr;
+    padding-top: var(--space-lg);
+  }
+
+  .hero__media {
+    order: 0;
   }
 
   .sobre__inner {

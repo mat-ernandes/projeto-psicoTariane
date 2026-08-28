@@ -26,6 +26,7 @@
   --branco: #ffffff;
   --terracota: #af774d;
   --terracota-escuro: #9c6640;
+  --terracota-claro: rgba(175, 119, 77, 0.4); /* uso só decorativo (traço/arco), nunca em texto */
   --cinza-escuro: #5b554f;
 
   /* Papéis semânticos (para facilitar troca/ajuste futuro) */

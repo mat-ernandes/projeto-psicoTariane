@@ -20,8 +20,6 @@ projeto-psicoTariane/
 │   │   └── main.js          # menu mobile, carrossel de fotos do consultório,
 │   │                        # destaque de seção ativa, ano no rodapé
 │   └── img/                 # fotos e ícones
-└── docs/
-    └── conteudo.md          # rascunho do conteúdo real antes de ir para o HTML
 ```
 
 ## Identidade visual

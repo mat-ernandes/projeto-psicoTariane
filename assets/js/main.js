@@ -75,6 +75,16 @@
     anoAtual.textContent = new Date().getFullYear();
   }
 
+  /* ---- Botão "Agende uma sessão": rola até Contato (âncora #contato, sem
+     preventDefault) e, ao mesmo tempo, abre o WhatsApp em nova aba ---- */
+  const btnAgendar = document.querySelector('.nav__cta');
+
+  if (btnAgendar) {
+    btnAgendar.addEventListener('click', () => {
+      window.open('https://wa.me/5514988092529', '_blank', 'noopener,noreferrer');
+    });
+  }
+
   /* ---- FAQ: acordeão exclusivo (uma resposta aberta por vez) ---- */
   const faqItens = document.querySelectorAll('.faq__list details');
 

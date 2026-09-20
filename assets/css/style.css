@@ -1,7 +1,7 @@
 /* ==========================================================================
    Site institucional — Tariane (Psicóloga)
    Estrutura: utilitários > acessibilidade > layout base > header/nav >
-   sobre > atuação > perguntas frequentes > contato > footer > responsivo
+   sobre > atuação > perguntas frequentes > localização > contato > footer > responsivo
    ========================================================================== */
 
 /* ---- Utilitários ---- */
@@ -464,28 +464,69 @@ section {
   padding-right: var(--space-lg);
 }
 
-/* ---- Contato ---- */
+/* ---- Localização ---- */
 
-.contato {
+.localizacao {
   background-color: var(--color-surface);
-  padding-block: var(--space-lg);
 }
 
-.contato__split {
+/* Duas colunas de altura equilibrada: o mapa cresce (flex) para acompanhar
+   a altura do bloco de fotos ao lado. */
+.localizacao__inner {
   display: grid;
   grid-template-columns: 1fr;
-  max-width: 90rem;
-  margin-inline: auto;
+  gap: var(--space-lg);
 }
 
-.contato__info {
-  background-color: var(--branco);
-  padding: var(--space-2xl) var(--container-padding);
+.localizacao__info {
+  display: flex;
+  flex-direction: column;
 }
 
-.contato__info-inner {
-  max-width: 28rem;
-  margin-inline: auto;
+.localizacao__mapa {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin-top: var(--space-md);
+}
+
+.localizacao__mapa-embed {
+  display: block;
+  flex: 1;
+  width: 100%;
+  min-height: 15rem;
+  border: 1px solid rgba(175, 119, 77, 0.25);
+  border-radius: var(--radius);
+}
+
+.localizacao__mapa-abrir {
+  align-self: flex-start;
+  margin-top: var(--space-xs);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.localizacao__mapa-link {
+  font-size: var(--fs-sm);
+  font-weight: 400;
+  margin-left: var(--space-xs);
+  white-space: nowrap;
+}
+
+.localizacao__nota {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: var(--fs-sm);
+  font-weight: 400;
+}
+
+/* ---- Contato ---- */
+
+.contato__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  align-items: center;
 }
 
 .contato__list {
@@ -524,39 +565,6 @@ section {
   fill: currentColor;
 }
 
-.contato__mapa-link {
-  font-size: var(--fs-sm);
-  font-weight: 400;
-  margin-left: var(--space-xs);
-  white-space: nowrap;
-}
-
-.contato__nota {
-  display: block;
-  margin-top: 0.15rem;
-  font-size: var(--fs-sm);
-  font-weight: 400;
-}
-
-.contato__mapa {
-  margin-top: var(--space-md);
-}
-
-.contato__mapa-embed {
-  display: block;
-  width: 100%;
-  height: 15rem;
-  border: 1px solid rgba(175, 119, 77, 0.25);
-  border-radius: var(--radius);
-}
-
-.contato__mapa-abrir {
-  display: inline-block;
-  margin-top: var(--space-xs);
-  font-size: var(--fs-sm);
-  font-weight: 600;
-}
-
 .contato__actions {
   display: flex;
   flex-direction: column;
@@ -567,7 +575,6 @@ section {
 /* ---- Card do Instagram ---- */
 
 .instagram-card {
-  margin-top: var(--space-lg);
   padding: var(--space-md);
   background-color: var(--color-surface);
   border: 1px solid rgba(175, 119, 77, 0.25);
@@ -681,24 +688,20 @@ section {
   filter: brightness(0.92);
 }
 
-.contato__carousel-block {
-  background-color: var(--terracota);
+.localizacao__fotos {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  padding: var(--space-2xl) var(--container-padding);
-}
-
-.contato__carousel-inner {
-  width: 100%;
-  max-width: 26rem;
+  padding: var(--space-lg) var(--space-md);
+  background-color: var(--terracota);
+  border-radius: var(--radius);
 }
 
 /* Branco sobre terracota (#AF774D) dá ~3.77:1 — abaixo do mínimo de 4.5:1
    do WCAG AA para texto normal, mas acima do mínimo de 3:1 para texto
    grande (>= 24px, como aqui). Por isso o tamanho generoso não é só
    estético: é o que garante a conformidade AA desse texto. */
-.contato__carousel-heading {
+.localizacao__fotos-heading {
   color: var(--branco);
   font-family: var(--font-primary);
   font-size: var(--fs-2xl);
@@ -758,12 +761,6 @@ section {
 .carousel__dot:hover,
 .carousel__dot:focus-visible {
   background-color: var(--branco);
-}
-
-@media (min-width: 48rem) {
-  .contato__split {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 /* ---- Footer ---- */
@@ -847,5 +844,10 @@ section {
 
   .cards {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .localizacao__inner,
+  .contato__inner {
+    grid-template-columns: 1fr 1fr;
   }
 }

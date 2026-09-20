@@ -75,6 +75,18 @@
     anoAtual.textContent = new Date().getFullYear();
   }
 
+  /* ---- FAQ: acordeão exclusivo (uma resposta aberta por vez) ---- */
+  const faqItens = document.querySelectorAll('.faq__list details');
+
+  faqItens.forEach((item) => {
+    item.addEventListener('toggle', () => {
+      if (!item.open) return;
+      faqItens.forEach((outro) => {
+        if (outro !== item && outro.open) outro.open = false;
+      });
+    });
+  });
+
   /* ---- Carrossel de fotos do consultório ---- */
   const carousel = document.getElementById('consultorio-carousel');
 

@@ -594,26 +594,52 @@ section {
   color: var(--terracota-escuro);
 }
 
-/* Grade ilustrativa: molduras vazias que só sugerem posts (não são reais). */
+/* Grade de posts: miniaturas quadradas (recorte centralizado) que levam à
+   postagem no Instagram; o overlay aparece no hover e no foco por teclado. */
 .instagram-card__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-xs);
-  margin-top: var(--space-md);
+  margin-block: var(--space-md);
 }
 
-.instagram-card__placeholder {
+.instagram-card__post {
+  position: relative;
+  display: block;
   aspect-ratio: 1 / 1;
+  overflow: hidden;
   background-color: var(--branco);
-  border: 2px dashed var(--terracota-claro);
+  border: 2px solid var(--terracota-claro);
   border-radius: var(--radius);
 }
 
-.instagram-card__note {
-  margin-top: 0.35rem;
-  margin-bottom: var(--space-md);
+.instagram-card__post img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.instagram-card__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xs);
+  background-color: rgba(91, 85, 79, 0.75);
+  color: var(--branco);
   font-size: 0.8125rem;
-  font-style: italic;
+  font-weight: 600;
+  text-align: center;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.instagram-card__post:hover .instagram-card__overlay,
+.instagram-card__post:focus-visible .instagram-card__overlay {
+  opacity: 1;
 }
 
 .btn-pill {

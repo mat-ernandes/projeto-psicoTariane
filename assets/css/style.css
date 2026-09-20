@@ -147,7 +147,7 @@ section {
   align-items: center;
   justify-content: space-between;
   gap: var(--space-md);
-  padding-block: var(--space-md);
+  padding-block: 1.25rem;
 }
 
 .logo {
@@ -156,7 +156,7 @@ section {
 }
 
 .logo__img {
-  width: 220px;
+  width: 194px;
   height: auto;
   display: block;
 }
@@ -190,9 +190,9 @@ section {
 }
 
 .nav__link {
-  font-size: var(--fs-base);
+  font-size: 0.9rem;
   font-weight: 500;
-  padding-block: 0.25rem;
+  padding-block: 0.5rem; /* área de toque confortável no menu mobile */
   border-bottom: 2px solid transparent;
   transition: border-color var(--transition-fast), color var(--transition-fast);
 }
@@ -207,6 +207,8 @@ section {
 .nav__cta {
   width: 100%;
   text-align: center;
+  font-size: 0.9rem;
+  padding: 0.65rem 1.5rem;
 }
 
 .nav-toggle {
@@ -808,8 +810,9 @@ section {
    Responsivo
    ========================================================================== */
 
-@media (min-width: 48rem) {
-  /* >= 768px: menu horizontal fixo, sem hambúrguer */
+@media (min-width: 56rem) {
+  /* >= 896px: menu horizontal fixo, sem hambúrguer (com 5 links + botão,
+     abaixo disso não cabe em uma linha) */
   .nav-toggle {
     display: none;
   }
@@ -819,7 +822,7 @@ section {
     position: static;
     flex-direction: row;
     align-items: center;
-    gap: var(--space-lg);
+    gap: var(--space-md);
     background-color: transparent;
     padding: 0;
     border-bottom: none;
@@ -831,11 +834,17 @@ section {
     width: auto;
   }
 
+  .nav__link {
+    padding-block: 0.25rem;
+  }
+
   .nav__cta {
     width: auto;
     text-align: left;
   }
+}
 
+@media (min-width: 48rem) {
   /* >= 768px: layouts lado a lado */
 
   .sobre__inner {

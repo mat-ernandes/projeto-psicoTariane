@@ -341,12 +341,6 @@ section {
 
 /* ---- Atuação (cards) ---- */
 
-.atuacao__credencial {
-  font-weight: 600;
-  color: var(--color-heading);
-  margin-bottom: var(--space-lg);
-}
-
 .cards {
   display: grid;
   grid-template-columns: 1fr;
@@ -380,16 +374,6 @@ section {
   height: 6px;
   border-radius: 50%;
   background-color: var(--terracota);
-}
-
-.atuacao__reconhecimento {
-  margin-top: var(--space-lg);
-  padding-top: var(--space-lg);
-  border-top: 1px solid rgba(175, 119, 77, 0.25);
-}
-
-.atuacao__reconhecimento h3 {
-  margin-bottom: var(--space-xs);
 }
 
 /* ---- Para quem é indicado ---- */
@@ -677,12 +661,5 @@ section {
 
   .cards {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 64rem) {
-  /* >= 1024px */
-  .cards {
-    grid-template-columns: repeat(3, 1fr);
   }
 }

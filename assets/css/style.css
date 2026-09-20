@@ -564,6 +564,58 @@ section {
   margin-top: var(--space-lg);
 }
 
+/* ---- Card do Instagram ---- */
+
+.instagram-card {
+  margin-top: var(--space-lg);
+  padding: var(--space-md);
+  background-color: var(--color-surface);
+  border: 1px solid rgba(175, 119, 77, 0.25);
+  border-radius: var(--radius);
+}
+
+.instagram-card__title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: 0;
+}
+
+.instagram-card__icon {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: var(--terracota);
+}
+
+.instagram-card__handle {
+  margin-bottom: var(--space-xs);
+  font-weight: 600;
+  color: var(--terracota-escuro);
+}
+
+/* Grade ilustrativa: molduras vazias que só sugerem posts (não são reais). */
+.instagram-card__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xs);
+  margin-top: var(--space-md);
+}
+
+.instagram-card__placeholder {
+  aspect-ratio: 1 / 1;
+  background-color: var(--branco);
+  border: 2px dashed var(--terracota-claro);
+  border-radius: var(--radius);
+}
+
+.instagram-card__note {
+  margin-top: 0.35rem;
+  margin-bottom: var(--space-md);
+  font-size: 0.8125rem;
+  font-style: italic;
+}
+
 .btn-pill {
   display: flex;
   align-items: center;

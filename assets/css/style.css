@@ -511,8 +511,14 @@ section {
   color: var(--terracota);
 }
 
+.contato__wa-link {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--space-xs);
+}
+
 /* Ícone do WhatsApp ao lado do número: verde oficial da marca, à direita
-   do texto (o número em si não é link). */
+   do texto. */
 .contato__icon--whatsapp {
   color: #25d366;
   fill: currentColor;
@@ -523,6 +529,13 @@ section {
   font-weight: 400;
   margin-left: var(--space-xs);
   white-space: nowrap;
+}
+
+.contato__nota {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: var(--fs-sm);
+  font-weight: 400;
 }
 
 .contato__actions {

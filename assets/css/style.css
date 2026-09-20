@@ -1,7 +1,7 @@
 /* ==========================================================================
    Site institucional — Tariane (Psicóloga)
    Estrutura: utilitários > acessibilidade > layout base > header/nav >
-   hero > sobre > atuação > público > contato > footer > responsivo
+   sobre > atuação > público > contato > footer > responsivo
    ========================================================================== */
 
 /* ---- Utilitários ---- */
@@ -254,88 +254,6 @@ section {
 
 .nav-toggle[aria-expanded='true'] .nav-toggle__icon::after {
   transform: translateY(-4px) rotate(-45deg);
-}
-
-/* ---- Hero ---- */
-
-/* No mobile, o hero fica logo abaixo do header fixo: reduzimos o espaço
-   do topo (que por padrão vem duplicado — da section genérica + do
-   próprio .hero__inner) e restauramos o valor original no desktop, lá
-   embaixo em "Responsivo". */
-.hero {
-  padding-top: var(--space-md);
-}
-
-.hero__inner {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-lg);
-  align-items: center;
-  padding-block: var(--space-lg);
-  padding-top: var(--space-sm);
-}
-
-.hero__subtitle {
-  font-size: var(--fs-lg);
-  margin-block: var(--space-sm) var(--space-md);
-}
-
-.hero__media {
-  /* Mobile: foto aparece antes do texto (mesmo estando depois no DOM,
-     por semântica/leitura por leitor de tela). Revertido no desktop,
-     onde a ordem visual já segue a ordem do grid lado a lado. */
-  order: -1;
-}
-
-/* Composição visual do retrato do hero: mesmo tratamento da seção Sobre
-   (arco decorativo + cartão flutuante, com a mesma espessura/cor/classe),
-   só o recorte da foto tem uma assimetria própria. Mesma regra de
-   segurança: deslocamentos negativos <= 1rem, dentro do padding do
-   .container, para não gerar scroll horizontal em telas pequenas. */
-.hero__visual {
-  position: relative;
-  max-width: 27rem;
-  margin-inline: auto;
-}
-
-.hero__photo-frame {
-  position: relative;
-  z-index: 1;
-  aspect-ratio: 3 / 4;
-  overflow: hidden;
-  /* Recorte orgânico diferente do da seção Sobre: mais "gota/pétala",
-     puxado para o canto oposto. */
-  border-radius: 34% 66% 60% 40% / 52% 36% 64% 48%;
-  box-shadow: 0 1.75rem 3rem rgba(91, 85, 79, 0.2);
-}
-
-.hero__photo {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-}
-
-/* Cartão flutuante do hero: reaproveita o mesmo componente/classe do
-   cartão de assinatura da seção Sobre (.sobre__quote-card — fundo,
-   sombra, cantos e posição no canto inferior esquerdo idênticos), só
-   com um modificador para o conteúdo em duas linhas em vez de uma. */
-.sobre__quote-card.hero__badge-card {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.15rem;
-}
-
-.hero__badge-label {
-  font-size: 0.75rem;
-  color: var(--cinza-escuro);
-}
-
-.hero__badge-highlight {
-  font-family: var(--font-primary);
-  font-weight: 700;
-  color: var(--terracota);
 }
 
 /* ---- Sobre ---- */
@@ -752,18 +670,6 @@ section {
   }
 
   /* >= 768px: layouts lado a lado */
-  .hero {
-    padding-top: var(--space-2xl);
-  }
-
-  .hero__inner {
-    grid-template-columns: 1.1fr 0.9fr;
-    padding-top: var(--space-lg);
-  }
-
-  .hero__media {
-    order: 0;
-  }
 
   .sobre__inner {
     grid-template-columns: 0.9fr 1.1fr;

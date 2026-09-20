@@ -342,20 +342,41 @@
                 src="assets/img/consultorio-2.jpeg"
                 alt="Sala de atendimento do consultório, com poltronas confortáveis"
               />
+              <img
+                class="carousel__slide"
+                src="assets/img/consultorio-3.jpg"
+                alt="Outra vista do consultório, com poltronas azuis, tapete claro, plantas e uma cômoda ao fundo"
+              />
+              <button type="button" class="carousel__arrow carousel__arrow--prev" aria-label="Foto anterior">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                  <path d="M15 5l-7 7 7 7" />
+                </svg>
+              </button>
+              <button type="button" class="carousel__arrow carousel__arrow--next" aria-label="Próxima foto">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                  <path d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
             </div>
             <div class="carousel__dots" role="group" aria-label="Selecionar foto do consultório">
               <button
                 type="button"
                 class="carousel__dot is-active"
-                aria-label="Mostrar foto 1 de 2: sala de espera"
+                aria-label="Mostrar foto 1 de 3: sala de espera"
                 aria-current="true"
                 data-index="0"
               ></button>
               <button
                 type="button"
                 class="carousel__dot"
-                aria-label="Mostrar foto 2 de 2: sala de atendimento"
+                aria-label="Mostrar foto 2 de 3: sala de atendimento"
                 data-index="1"
+              ></button>
+              <button
+                type="button"
+                class="carousel__dot"
+                aria-label="Mostrar foto 3 de 3: outra vista do consultório"
+                data-index="2"
               ></button>
             </div>
           </div>

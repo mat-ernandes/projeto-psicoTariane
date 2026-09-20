@@ -740,6 +740,48 @@ section {
   opacity: 1;
 }
 
+/* Setas laterais: fundo escuro semitransparente + ícone branco (bom
+   contraste sobre qualquer foto), alvo de toque de 44px. */
+.carousel__arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-top: -1.375rem;
+  border-radius: 50%;
+  background-color: rgba(91, 85, 79, 0.65);
+  color: var(--branco);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  transition: background-color var(--transition-fast);
+}
+
+.carousel__arrow svg {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.carousel__arrow--prev {
+  left: var(--space-xs);
+}
+
+.carousel__arrow--next {
+  right: var(--space-xs);
+}
+
+.carousel__arrow:hover,
+.carousel__arrow:focus-visible {
+  background-color: rgba(91, 85, 79, 0.9);
+}
+
+.carousel__arrow:focus-visible {
+  outline: 3px solid var(--branco);
+  outline-offset: 2px;
+}
+
 .carousel__dots {
   display: flex;
   justify-content: center;

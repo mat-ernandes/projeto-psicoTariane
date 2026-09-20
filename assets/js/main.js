@@ -145,6 +145,24 @@
       });
     });
 
+    /* Setas: dão a volta nas pontas (última -> primeira e vice-versa). */
+    const anterior = carousel.querySelector('.carousel__arrow--prev');
+    const seguinte = carousel.querySelector('.carousel__arrow--next');
+
+    if (anterior) {
+      anterior.addEventListener('click', () => {
+        irPara((current - 1 + slides.length) % slides.length);
+        iniciarAutoAvanco();
+      });
+    }
+
+    if (seguinte) {
+      seguinte.addEventListener('click', () => {
+        proxima();
+        iniciarAutoAvanco();
+      });
+    }
+
     carousel.addEventListener('mouseenter', pararAutoAvanco);
     carousel.addEventListener('mouseleave', iniciarAutoAvanco);
     carousel.addEventListener('focusin', pararAutoAvanco);

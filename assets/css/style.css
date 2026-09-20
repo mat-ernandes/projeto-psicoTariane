@@ -511,6 +511,13 @@ section {
   color: var(--terracota);
 }
 
+/* Ícone do WhatsApp ao lado do número: verde oficial da marca, à direita
+   do texto (o número em si não é link). */
+.contato__icon--whatsapp {
+  color: #25d366;
+  fill: currentColor;
+}
+
 .contato__mapa-link {
   font-size: var(--fs-sm);
   font-weight: 400;
@@ -663,7 +670,7 @@ section {
 
 .whatsapp-float {
   position: fixed;
-  left: var(--space-md);
+  right: var(--space-md);
   bottom: var(--space-md);
   z-index: 200;
   display: inline-flex;
@@ -672,7 +679,7 @@ section {
   width: 3.25rem;
   height: 3.25rem;
   border-radius: 50%;
-  background-color: var(--terracota);
+  background-color: #25d366; /* verde oficial do WhatsApp */
   color: var(--branco);
   box-shadow: 0 4px 12px rgba(91, 85, 79, 0.35);
   transition: background-color var(--transition-fast), transform var(--transition-fast);
@@ -686,7 +693,7 @@ section {
 
 .whatsapp-float:hover,
 .whatsapp-float:focus-visible {
-  background-color: var(--cinza-escuro);
+  background-color: #1ebe5a;
   transform: scale(1.08);
 }
 

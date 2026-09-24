@@ -17,10 +17,35 @@ projeto-psicoTariane/
 │   │   ├── variables.css    # tokens de cor, tipografia e espaçamento
 │   │   └── style.css        # estilos do site
 │   ├── js/
-│   │   └── main.js          # menu mobile, carrossel de fotos do consultório,
-│   │                        # destaque de seção ativa, ano no rodapé
-│   └── img/                 # fotos e ícones
+│   │   └── main.js          # menu mobile, acordeão do FAQ, carrossel do
+│   │                        # consultório, destaque de seção ativa,
+│   │                        # botão "Agende uma sessão", ano no rodapé
+│   ├── img/                 # fotos e ícones
+│   └── instagram/           # miniaturas reais das postagens do Instagram
 ```
+
+## Seções do site
+
+Ordem de navegação: **Sobre → Atuação e Formação → FAQ → Localização → Contato**
+(a seção de Contato foi intencionalmente movida para o final da página).
+
+- **Sobre** — biografia real da Tariane, com foto.
+- **Atuação e Formação** — cards de Formação, Atuação, Especializações e
+  Reconhecimento acadêmico.
+- **FAQ (Perguntas Frequentes)** — 10 perguntas reais em acordeão acessível
+  (`<details>`/`<summary>`), com fechamento automático da pergunta anterior
+  ao abrir outra; a primeira pergunta vem aberta por padrão.
+- **Localização** — endereço, aviso de atendimento somente com agendamento,
+  mapa do Google embutido (iframe) com link "Abrir no Google Maps", e
+  carrossel "Conheça nosso espaço" com fotos reais do consultório e setas de
+  navegação.
+- **Contato** — telefone com ícone oficial do WhatsApp (verde, à direita do
+  número), e-mail, botão "Falar pelo WhatsApp" e card de Instagram com
+  miniaturas reais de postagens, cada uma linkando para o post original.
+
+O botão "Agende uma sessão", fixo no menu, abre o WhatsApp
+(`https://wa.me/5514988092529`) em uma nova aba e, ao mesmo tempo, rola a
+página até a seção Contato.
 
 ## Identidade visual
 
@@ -48,6 +73,10 @@ projeto-psicoTariane/
 - Menu mobile com `aria-expanded`, `aria-controls`, fechamento por `Esc` e
   retorno de foco ao botão.
 - `aria-current="true"` no item de menu da seção visível (via `IntersectionObserver`).
+- - Acordeão do FAQ com `<details>`/`<summary>` nativos (navegável por teclado
+  e leitor de tela sem ARIA extra), com fechamento exclusivo via JavaScript.
+- Setas de navegação do carrossel implementadas como `<button>` com
+  `aria-label` descritivo, operáveis por teclado.
 - Indicadores de foco visíveis (`:focus-visible`) em todos os elementos interativos.
 - Texto alternativo (`alt`) obrigatório em todas as imagens de conteúdo.
 - Respeito a `prefers-reduced-motion` (desativa animações/scroll suave e o
@@ -57,22 +86,27 @@ projeto-psicoTariane/
 
 ## Conteúdo
 
-Todo o conteúdo textual (biografia, currículo, especialidades e dados de
-contato) é real, fornecido pela própria Tariane. Enquanto o material não é
-inserido, o HTML traz marcadores `[CONTEÚDO PENDENTE: ...]` no lugar do texto
-final — ver [`docs/conteudo.md`](docs/conteudo.md).
+Todo o conteúdo textual (biografia, formação, especialidades, FAQ e dados de
+contato) é real, fornecido pela própria Tariane e revisado com ela em duas
+rodadas de feedback via WhatsApp antes da publicação. Não há mais conteúdo
+pendente ou placeholders no HTML.
 
-A seção Contato não tem mais formulário: agora traz telefone/e-mail/endereço
-diretos e dois botões ("Falar pelo WhatsApp" / "Ver Instagram") ao lado de um
-carrossel com fotos do consultório. Os links desses dois botões ainda estão
-como placeholder (`LINK-WHATSAPP-AQUI` / `LINK-INSTAGRAM-AQUI`) — falta
-substituir pelos links reais antes de publicar.
+A seção Contato não tem formulário: traz telefone, e-mail e botão direto de
+WhatsApp, além de um card de Instagram com miniaturas reais das postagens da
+Tariane — sem integração automática via API (o que exigiria configuração
+adicional fora do escopo atual), mas com links reais para cada post.
 
 ## Como rodar localmente
 
 Não há build — basta abrir `index.html` no navegador, ou usar uma extensão
-tipo "Live Server" no VS Code para recarregamento automático.
+tipo "Live Server" no VS Code para recarregamento automático.]
+
+## Publicação
+
+Site publicado via GitHub Pages: https://mat-ernandes.github.io/projeto-psicoTariane/
+posteriormente será hospedado.
 
 ## Autor
 
-Mateus Ernandes — projeto desenvolvido para a psicóloga Tariane (CRP 06/138426).
+Mateus Ernandes da Cunha — projeto desenvolvido para a psicóloga Tariane
+Oliveira (CRP 06/138426), como parte do Bootcamp Extensionista.

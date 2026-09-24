@@ -132,6 +132,11 @@ section {
   color: var(--branco);
 }
 
+.btn--sm {
+  font-size: var(--fs-sm);
+  padding: 0.5rem 1.1rem;
+}
+
 /* ---- Header / Navegação ---- */
 
 .site-header {
@@ -271,12 +276,9 @@ section {
   align-items: center;
 }
 
-/* Composição visual do retrato: moldura orgânica assimétrica + arco parcial
-   decorativo atrás + cartão de assinatura sobreposto num dos cantos.
-   Deslocamentos negativos ficam <= 1rem para nunca ultrapassar o padding
-   lateral do .container (1rem) e não gerar scroll horizontal no mobile. */
+/* Composição visual do retrato: moldura orgânica assimétrica, centrada e
+   com largura limitada para acompanhar a coluna de texto ao lado. */
 .sobre__visual {
-  position: relative;
   max-width: 26rem;
   margin-inline: auto;
 }
@@ -300,34 +302,13 @@ section {
   object-position: center top;
 }
 
-.sobre__quote-card {
-  position: absolute;
-  z-index: 2;
-  left: -0.75rem;
-  bottom: -1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  max-width: 11rem;
-  background-color: var(--branco);
-  padding: 0.65rem 1rem;
-  border-radius: 1rem 1rem 1rem 0.25rem;
-  box-shadow: 0 0.5rem 1.25rem rgba(91, 85, 79, 0.22);
-}
-
-.sobre__quote-star {
-  flex-shrink: 0;
-  color: var(--terracota);
-  font-size: 0.9rem;
-  line-height: 1;
-}
-
-.sobre__quote-text {
-  font-style: italic;
-  font-weight: 600;
-  font-size: var(--fs-sm);
-  line-height: 1.2;
-  color: var(--color-heading);
+/* Bio justificada, como pedido pela profissional. Fica de fora a .assinatura (tem <br>, e a
+   linha antes da quebra sairia esticada) e a .credencial, de uma linha só.
+   hyphens: auto usa o lang="pt-BR" do documento para quebrar as palavras e
+   evitar os "rios" de espaço que a justificação abre em telas estreitas. */
+.sobre__content p:not(.assinatura):not(.credencial) {
+  text-align: justify;
+  hyphens: auto;
 }
 
 .credencial {
@@ -378,7 +359,7 @@ section {
   background-color: var(--terracota);
 }
 
-/* ---- Perguntas frequentes (acordeão com <details>) ---- */
+/* ---- Perguntas frequentes (com <details>) ---- */
 
 .eyebrow {
   margin-bottom: var(--space-xs);
@@ -674,8 +655,8 @@ section {
 }
 
 /* #25D366 (verde oficial do WhatsApp) com texto branco dá só ~2:1 de
-   contraste — falha o mínimo de 4.5:1 do WCAG AA. Usamos um verde mais
-   escuro dentro da mesma família de matiz (~4.6:1), que continua sendo
+   contraste falha o mínimo de 4.5:1 do WCAG AA. Então usei um verde mais
+   escuro dentro da mesma família de mattiz (~4.6:1), que continua sendo
    reconhecido como "verde do WhatsApp" mas passa em contraste. */
 .btn-pill--whatsapp {
   background-color: #188640;
@@ -701,13 +682,14 @@ section {
 
 /* Branco sobre terracota (#AF774D) dá ~3.77:1 — abaixo do mínimo de 4.5:1
    do WCAG AA para texto normal, mas acima do mínimo de 3:1 para texto
-   grande (>= 24px, como aqui). Por isso o tamanho generoso não é só
-   estético: é o que garante a conformidade AA desse texto. */
+   grande. Sem negrito, o limite de "texto grande" passa a ser 24px: o
+   --fs-2xl (28px) mantém a conformidade AA, então o tamanho aqui não é
+   só estético — não reduzir. */
 .localizacao__fotos-heading {
   color: var(--branco);
   font-family: var(--font-primary);
   font-size: var(--fs-2xl);
-  font-weight: 600;
+  font-weight: 400;
   line-height: var(--lh-heading);
   text-align: center;
   margin-bottom: var(--space-md);
@@ -805,6 +787,14 @@ section {
 .carousel__dot:hover,
 .carousel__dot:focus-visible {
   background-color: var(--branco);
+}
+
+/* Link do Instituto sobre o fundo terracota: texto pequeno em branco sobre
+   --terracota daria só ~3.77:1, então o botão usa o fundo --cinza-escuro
+   (~7.35:1 com branco), como as demais chamadas do site. */
+.localizacao__fotos-link {
+  align-self: center;
+  margin-top: var(--space-md);
 }
 
 /* ---- Footer ---- */
